@@ -1,10 +1,21 @@
 const startButton = document.getElementById("startButton");
 const questionContainer = document.getElementById("questionContainer");
+const answerButtonsContainer = document.getElementById(
+  "answerButtonsContainer"
+);
 
 const start = () => {
   const randomQuestion = Math.floor(Math.random() * 4);
-  console.log(questions[randomQuestion]);
-  questionContainer.innerHTML = questions[randomQuestion].question;
+  let question = questions[randomQuestion].question;
+  questionContainer.innerHTML = question;
+
+  questions[randomQuestion].answers.forEach((answer) => {
+    const answerButton = document.createElement("button");
+    answerButton.innerHTML = answer.text;
+    answerButton.id = answer.text;
+    answerButtonsContainer.appendChild(answerButton);
+    console.log(answer.text);
+  });
 };
 
 startButton.addEventListener("click", start);
