@@ -31,6 +31,7 @@ const checkAnswer = (e) => {
   currentQuestionAnswers.forEach((answer) => {
     if (chosenButton.id === answer.text && answer.correct === true) {
       console.log("correct");
+      document.body.style.backgroundColor = "green";
     }
   });
 };
