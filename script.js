@@ -6,6 +6,7 @@ const answerButtonsContainer = document.getElementById(
 
 const start = () => {
   const randomQuestion = Math.floor(Math.random() * 4);
+  let questionItem = questions[randomQuestion];
   let question = questions[randomQuestion].question;
   questionContainer.innerHTML = question;
 
@@ -13,9 +14,16 @@ const start = () => {
     const answerButton = document.createElement("button");
     answerButton.innerHTML = answer.text;
     answerButton.id = answer.text;
+    answerButton.className = "answerBtn";
+    answerButton.addEventListener("click", checkAnswer);
     answerButtonsContainer.appendChild(answerButton);
     console.log(answer.text);
   });
+};
+
+const checkAnswer = (e) => {
+  const chosenButton = e.target;
+  console.log(chosenButton);
 };
 
 startButton.addEventListener("click", start);
