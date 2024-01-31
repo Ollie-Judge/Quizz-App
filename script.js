@@ -40,6 +40,9 @@ const checkAnswer = (e) => {
       setTimeout(resetBackgroundColour, 1000);
 
       next();
+    } else if (chosenButton.id !== answer.text && answer.correct === false) {
+      document.body.style.backgroundColor = "red";
+      setTimeout(resetBackgroundColour, 1000);
     }
   });
 };
