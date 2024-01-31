@@ -24,6 +24,10 @@ const start = () => {
   });
 };
 
+const resetBackgroundColour = () => {
+  document.body.style.backgroundColor = "white";
+};
+
 const checkAnswer = (e) => {
   const chosenButton = e.target;
   console.log(chosenButton);
@@ -32,8 +36,15 @@ const checkAnswer = (e) => {
     if (chosenButton.id === answer.text && answer.correct === true) {
       console.log("correct");
       document.body.style.backgroundColor = "green";
+      setTimeout(resetBackgroundColour, 1000);
+
+      next();
     }
   });
+};
+
+const next = () => {
+  console.log("remove buttons");
 };
 
 startButton.addEventListener("click", start);
@@ -49,9 +60,9 @@ const questions = [
   {
     question: "what is 3+3?",
     answers: [
-      { text: "6", correct: false },
+      { text: "6", correct: true },
       { text: "8", correct: false },
-      { text: "3", correct: true },
+      { text: "3", correct: false },
       { text: "5", correct: false },
     ],
   },
