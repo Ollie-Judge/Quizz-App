@@ -3,3 +3,12 @@
   margin: 25px auto;
   text-align: center;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+button {
+  padding: 25px;
+  margin: 25px;
+}

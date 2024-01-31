@@ -7,7 +7,8 @@ const answerButtonsContainer = document.getElementById(
 let currentQuestionAnswers;
 
 const start = () => {
-  const randomQuestion = Math.floor(Math.random() * 4);
+  startButton.classList = "hidden";
+  const randomQuestion = Math.floor(Math.random() * 3);
   let question = questions[randomQuestion].question;
   questionContainer.innerHTML = question;
   currentQuestionAnswers = questions[randomQuestion].answers;
@@ -44,7 +45,10 @@ const checkAnswer = (e) => {
 };
 
 const next = () => {
-  console.log("remove buttons");
+  while (answerButtonsContainer.firstChild) {
+    answerButtonsContainer.removeChild(answerButtonsContainer.firstChild);
+  }
+  start();
 };
 
 startButton.addEventListener("click", start);
